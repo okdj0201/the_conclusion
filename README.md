@@ -31,5 +31,6 @@ $ ./run_all.sh
 
 # Roadmap
 * Load configuration from file.
+* Auto favorite latest tweet of [@kinnnikun0917](https://twitter.com/kinnikun0917)
 * Docker/Kubernetes support
 * AWS Labmda support
