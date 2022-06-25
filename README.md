@@ -2,7 +2,7 @@
 This is a JOKE repository to operate [@okd_j](https://twitter.com/okd_j) as a bot.
 
 # Version
-v0.0.1 : Laptop edition
+v0.0.1 : Laptop support
 
 # Features
 * Tweets "しねない"
