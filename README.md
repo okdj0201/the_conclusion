@@ -17,10 +17,8 @@ $ cat .env
 export API_KEY="<Please obtain API key from twitter api>"
 export API_SECRET="<Please obtain API secret from twitter api>"
 export ACCESS_TOKEN="<Please obtain Access Token from twitter api>"
-export ACCESS_TOKEN_SECRET="<Please obtain Access token secret from twit
-
-export BEARER_TOKEN="<Please obtain Bearer Token secret from twitter api>
-
+export ACCESS_TOKEN_SECRET="<Please obtain Access token secret from twitter>"
+export BEARER_TOKEN="<Please obtain Bearer Token secret from twitter api>"
 
 ```
 
