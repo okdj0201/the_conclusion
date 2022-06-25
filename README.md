@@ -8,6 +8,7 @@ v0.0.1 : Laptop support
 * Tweets "しねない"
 * Auto-reply with "しねない" for mentions.
   * Note: Automatic replies will be sent to accounts that are mutual followers and are not blocked or muted by okd_j.
+* Auto favorite latest tweet of [@kinnnikun0917](https://twitter.com/kinnikun0917)
 
 # Quick start
 1. Set required key/secret/tokens to access twitter API as environment variable.
@@ -30,7 +31,7 @@ $ ./run_all.sh
 ```
 
 # Roadmap
+* Refactor
 * Load configuration from file.
-* Auto favorite latest tweet of [@kinnnikun0917](https://twitter.com/kinnikun0917)
 * Docker/Kubernetes support
 * AWS Labmda support
