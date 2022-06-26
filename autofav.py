@@ -41,11 +41,11 @@ def fav():
 
 def schedule_bot():
     LOG.info('Starting Schedule...')
-    schedule.every(SCHEDULE_CYCLE_HOUR).hours.do(tweet)
+    schedule.every(SCHEDULE_CYCLE_HOUR).hours.do(fav)
     while True:
         try:
           schedule.run_pending()
-          sleep(3600 * SCHEDULE_CYCLE_HOUR)
+          sleep(1)
         except Exception as e:
           LOG.error('Something went failed during schedule.')
           LOG.error(f'{e}')
@@ -61,7 +61,7 @@ def main():
         global SCHEDULE_CYCLE_HOUR
         SCHEDULE_CYCLE_HOUR = args.schedule
     LOG.info(f'Bot started with {SCHEDULE_CYCLE_HOUR}-hour cycles.')
-    fav()
+    schedule_bot()
 
 if __name__ == '__main__':
     main()

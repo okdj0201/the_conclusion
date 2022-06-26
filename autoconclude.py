@@ -16,6 +16,7 @@ LOG = logger.get_logger(logdir=f'{os.getcwd()}/log', logfile='autoconclude.log')
 
 def autoreply():
     try:
+        LOG.info('Autoreply...')
         config=TweetConfigLoader()
         auth = tweepy.OAuthHandler(config.api_key, config.api_secret)
         auth.set_access_token(config.access_token, config.access_token_secret)
@@ -36,7 +37,7 @@ def schedule_auto_reply():
     while True:
         try:
           schedule.run_pending()
-          sleep(3600 * SCHEDULE_CYCLE_HOUR)
+          sleep(1)
         except Exception as e:
           LOG.error('Something went failed during schedule.')
           LOG.error(f'{e}')

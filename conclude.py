@@ -32,7 +32,7 @@ def schedule_bot():
     while True:
         try:
           schedule.run_pending()
-          sleep(3600 * SCHEDULE_CYCLE_HOUR)
+          sleep(1)
         except Exception as e:
           LOG.error('Something went failed during schedule.')
           LOG.error(f'{e}')
