@@ -45,7 +45,7 @@ $ ./kill_bot.sh
 ```
 
 # Roadmap
-* Refactor
-* Load configuration from file.
+* ~~Refactor~~ : Done
+* ~~Load configuration from file.~~ : Done
 * Docker/Kubernetes support
 * AWS Labmda support
