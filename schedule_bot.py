@@ -20,12 +20,12 @@ FAV_SCHEDULE_CYCLE_HOUR=24
 def schedule_bot():
     LOG.info(f'Starting schedule for auto-tweet with {TWEET_SCHEDULE_CYCLE_HOUR} hour duration.')
     schedule.every(TWEET_SCHEDULE_CYCLE_HOUR).hours.do(tweet)
-    LOG.info(f'Starting schedule for auto-tweet with {REPLY_SCHEDULE_CYCLE_HOUR} hour duration.')
+    LOG.info(f'Starting schedule for auto-reply with {REPLY_SCHEDULE_CYCLE_HOUR} hour duration.')
     schedule.every(TWEET_SCHEDULE_CYCLE_HOUR).hours.do(reply)
-    LOG.info(f'Starting schedule for auto-tweet with {FAV_SCHEDULE_CYCLE_HOUR} hour duration.')
+    LOG.info(f'Starting schedule for auto-fav with {FAV_SCHEDULE_CYCLE_HOUR} hour duration.')
     schedule.every(TWEET_SCHEDULE_CYCLE_HOUR).hours.do(fav)
     while True:
-        try:
+        try: 
           schedule.run_pending()
           sleep(1)
         except Exception as e:

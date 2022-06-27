@@ -20,6 +20,7 @@ def reply():
         mentions = api.mentions_timeline()
         time_now =  datetime.datetime.now(datetime.timezone.utc)
         for mention in api.mentions_timeline():
+            LOG.debug(f'Reply found: {mention._json["user"]["name"]}, Tweeted {mention._json["text"]} at {mention._json["created_at"]}')
             tweet_datetime = datetime.datetime.strptime(mention._json['created_at'], '%a %b %d %H:%M:%S %z %Y')
             if time_now < tweet_datetime + datetime.timedelta(hours=REPLY_CRITERIA_HOUR):
                  LOG.info(f'Generating autoreply to {mention._json["user"]["name"]}, Tweeted {mention._json["text"]}')
