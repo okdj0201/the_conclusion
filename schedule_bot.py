@@ -7,7 +7,6 @@ import datetime
 from time import sleep
 import tweepy
 from lib import logger
-from lib.config import TweetConfigLoader
 from autoconclude import reply
 from autofav import fav
 from conclude import tweet

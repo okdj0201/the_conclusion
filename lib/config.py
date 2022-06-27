@@ -3,11 +3,12 @@
 import os
 import yaml
 from . import logger
+import tweepy
 log = logger.get_logger(loglevel='INFO')
 
 
-class TweetConfigLoader:
-    """Load Configuration to auth for tweepy."""
+class TweepyAPIWrapper:
+    """Load Configuration and get api with twepy."""
 
     def __init__(self, file_path=None):
         # Load config from environment variable
@@ -58,10 +59,18 @@ class TweetConfigLoader:
    
     def load_config(self, file_path):
         log.info('Load Config from configuration file. {}'.format(file_path))
-        with open(os.path.expanduser(file_path)) as f:
+        ab_path = os.path.expanduser(file_path)
+        if not os.path.exists(ab_path):
+            return
+        with open(ab_path) as f:
             config=yaml.safe_load(f)
             self.api_key = config.get('api_key',{})
             self.api_secret = config.get('api_secret',{})
             self.access_token = config.get('access_token',{})
             self.access_token_secret = config.get('access_token_secret',{})
             self.bearer_token = config.get('bearer_token')
+
+    def get_api(self):
+        auth = tweepy.OAuthHandler(self.api_key, self.api_secret)
+        auth.set_access_token(self.access_token, self.access_token_secret)
+        return tweepy.API(auth)

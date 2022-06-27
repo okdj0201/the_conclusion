@@ -7,7 +7,7 @@ import datetime
 from time import sleep
 import tweepy
 from lib import logger
-from lib.config import TweetConfigLoader
+from lib.config import TweepyAPIWrapper
 
 # DO NOT CHANGE CONCLUSION. It is a sacred variable that cannot be changed even by the power of God.
 KINNIKUN="kinnikun0917"
@@ -17,10 +17,7 @@ FAV_CRITERIA_HOUR=24
 def fav():
     LOG.info("Let's look into Kinnikun's tweet...")
     try:
-        config=TweetConfigLoader()
-        auth = tweepy.OAuthHandler(config.api_key, config.api_secret)
-        auth.set_access_token(config.access_token, config.access_token_secret)
-        api = tweepy.API(auth)
+        api = TweepyAPIWrapper('~/.tweet_api.yml').get_api()
         timeline_kinnnikun = api.user_timeline(screen_name=KINNIKUN)
         time_now =  datetime.datetime.now(datetime.timezone.utc)
         for kinniku_tweet in timeline_kinnnikun:

@@ -7,7 +7,7 @@ import schedule
 from time import sleep
 import tweepy
 from lib import logger
-from lib.config import TweetConfigLoader
+from lib.config import TweepyAPIWrapper
 
 REPLY="しねない"
 REPLY_CRITERIA_HOUR=1
@@ -16,10 +16,7 @@ LOG = logger.get_logger()
 def reply():
     try:
         LOG.info('Autoreply...')
-        config=TweetConfigLoader()
-        auth = tweepy.OAuthHandler(config.api_key, config.api_secret)
-        auth.set_access_token(config.access_token, config.access_token_secret)
-        api = tweepy.API(auth)
+        api = TweepyAPIWrapper('~/.tweet_api.yml').get_api()
         mentions = api.mentions_timeline()
         time_now =  datetime.datetime.now(datetime.timezone.utc)
         for mention in api.mentions_timeline():
