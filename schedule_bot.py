@@ -21,9 +21,9 @@ def schedule_bot():
     LOG.info(f'Starting schedule for auto-tweet with {TWEET_SCHEDULE_CYCLE_HOUR} hour duration.')
     schedule.every(TWEET_SCHEDULE_CYCLE_HOUR).hours.do(tweet)
     LOG.info(f'Starting schedule for auto-reply with {REPLY_SCHEDULE_CYCLE_HOUR} hour duration.')
-    schedule.every(TWEET_SCHEDULE_CYCLE_HOUR).hours.do(reply)
+    schedule.every(REPLY_SCHEDULE_CYCLE_HOUR).hours.do(reply)
     LOG.info(f'Starting schedule for auto-fav with {FAV_SCHEDULE_CYCLE_HOUR} hour duration.')
-    schedule.every(TWEET_SCHEDULE_CYCLE_HOUR).hours.do(fav)
+    schedule.every(FAV_SCHEDULE_CYCLE_HOUR).hours.do(fav)
     while True:
         try: 
           schedule.run_pending()
