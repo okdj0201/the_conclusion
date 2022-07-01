@@ -21,10 +21,10 @@ jobs:
 
       - name: Build :latest
         if: success()
-        run: docker build -t username/imagename:latest .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/imagename:latest .
 
       - name: Deploy :latest
         if: success()
         uses: actions-hub/docker@master
         with:
-          args: push username/imagename:latest
+          args: push ${{ secrets.DOCKER_USERNAME }}/the_conclusion:latest
