@@ -21,7 +21,7 @@ jobs:
 
       - name: Build :latest
         if: success()
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/imagename:latest .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/the_conclusion:latest .
 
       - name: Deploy :latest
         if: success()
