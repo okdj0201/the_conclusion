@@ -24,7 +24,7 @@ jobs:
       - name: Prepare Build Arg
         id: prepare_build_arg
         run: |
-          if [[ ${foo} =~ ^v[0-9]\.[0-9]\.[0-9] ]]; then
+          if [[ ${GITHUB_REF#refs/tags/} =~ ^v[0-9]\.[0-9]\.[0-9] ]]; then
               echo "CURRENT_TAG=${GITHUB_REF#refs/tags/}" >> "$GITHUB_ENV"
           else
               echo "CURRENT_TAG=latest" >> "$GITHUB_ENV"
