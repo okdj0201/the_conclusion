@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: conclusion
+spec:
+  containers:
+  - name: conclusion
+    image: okadajn0201/the_conclusion:v1.0.0
