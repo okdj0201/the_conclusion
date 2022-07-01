@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - main
+    tags:
+      - "*"
 
 jobs:
   push:
@@ -19,12 +21,17 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           DOCKER_REGISTRY_URL: docker.io
 
+      - name: Prepare Build Arg
+        id: prepare_build_arg
+        run: |
+          CURRENT_TAG=${GITHUB_REF#refs/tags/}
+
       - name: Build :latest
         if: success()
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/the_conclusion:latest .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/the_conclusion:${{ steps.prepare_build_arg.outputs.CURRENT_TAG }} .
 
       - name: Deploy :latest
         if: success()
         uses: actions-hub/docker@master
         with:
-          args: push ${{ secrets.DOCKER_USERNAME }}/the_conclusion:latest
+          args: push ${{ secrets.DOCKER_USERNAME }}/the_conclusion:${{ steps.prepare_build_arg.outputs.CURRENT_TAG }}
