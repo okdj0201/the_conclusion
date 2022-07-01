@@ -1,1 +1,1 @@
-docker ps -a | grep conclusion | awk '{print }' | xargs docker logs
+docker ps -a | grep conclusion | awk '{print $2}' | xargs docker logs
