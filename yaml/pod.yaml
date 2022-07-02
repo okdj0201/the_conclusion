@@ -6,3 +6,14 @@ spec:
   containers:
   - name: conclusion
     image: okadajn0201/the_conclusion:v1.0.0
+    env:
+      - name: API_KEY
+        value: <Please obtain API key from twitter api>
+      - name: API_SECRET
+        value: <Please obtain API secret from twitter api>
+      - name: ACCESS_TOKEN
+        value: <Please obtain Access Token from twitter api>
+      - name: ACCESS_TOKEN_SECRET
+        value: <Please obtain Access token secret from twitter>
+      - name: BEARER_TOKEN
+        value: <Please obtain Bearer Token secret from twitter api>
