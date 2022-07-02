@@ -2,7 +2,7 @@
 This is a JOKE repository to operate [@okd_j](https://twitter.com/okd_j) as a bot.
 
 # Version
-v1.0.1 : Docker / Container support
+v1.0.2 : Docker / Container support
 
 # Features
 * Tweets "しねない"
