@@ -56,5 +56,5 @@ jobs:
         with:
           push: true
           file: Dockerfile
-          tags: ${{ steps.login-ecr.outputs.registry }}/${{ env.AWS_ECR_REPO_NAME }}:${{ env.CURRENT_TAG }}
+          tags: ${{ steps.login-ecr.outputs.registry }}/${{ secrets.AWS_ECR_REPO_NAME }}:${{ env.CURRENT_TAG }}
   
