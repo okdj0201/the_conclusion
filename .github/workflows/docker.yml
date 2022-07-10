@@ -57,10 +57,4 @@ jobs:
           push: true
           file: Dockerfile
           tags: ${{ steps.login-ecr.outputs.registry }}/${{ env.AWS_ECR_REPO_NAME }}:${{ env.CURRENT_TAG }}
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
   
-      - name: Move cache
-        run: |
-          rm -rf /tmp/.buildx-cache
-          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
