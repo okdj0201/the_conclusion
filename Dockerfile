@@ -5,4 +5,4 @@ RUN pip install tweepy schedule PyYAML
 
 COPY . .
 
-CMD ["python", "./schedule_bot.py"]
+#CMD ["python", "./schedule_bot.py"]
