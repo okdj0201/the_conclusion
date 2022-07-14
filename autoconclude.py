@@ -29,3 +29,5 @@ def reply():
         LOG.error('Error during autoreply.')
         LOG.error(f'{e}')
 
+if __name__ == '__main__':
+    reply()

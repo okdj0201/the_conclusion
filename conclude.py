@@ -22,3 +22,5 @@ def tweet():
         LOG.error('Something went failed during tweet.')
         LOG.error(f'{e}')
 
+if __name__ == '__main__':
+    tweet()

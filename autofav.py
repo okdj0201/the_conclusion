@@ -35,3 +35,5 @@ def fav():
         LOG.error('Something went failed during favorite...')
         LOG.error(f'{e}')
 
+if __name__ == '__main__':
+    fav()
