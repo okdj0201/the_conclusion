@@ -1,4 +1,4 @@
-FROM python:3.8.6
+FROM python:3.11.0b4-slim
 WORKDIR /usr/src/app
 
 RUN pip install tweepy schedule PyYAML
